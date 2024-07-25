@@ -27,7 +27,7 @@
 <body>
     <%- include('partials/navbar') %>
     <div class="container text-center">
-        <h1 style="padding-top: 200px">your modules for this semester</h1>
+        <h1 style="padding-top: 100px">your modules for this semester</h1>
         <form action="/join-group" method="POST">
             <h6>displaying results for:</h6>
             <% modules.forEach(module => { %>
@@ -43,7 +43,7 @@
                             <h6> <%= section[0].year %> semester: <%= section[0].semester %></h6>
                             <p>Section: <%= section[0].section %></p>
                             <p>Group size: <%= section[0].studentNo %></p>
-                            <p><button type="submit" name="join" value="<%= section[0].module %> <%= section[0].section %> <%= section[0].year %> <%= section[0].semester %>">join group</button></p>
+                            <p style="padding-top: 5px"><button type="submit" name="join" value="<%= section[0].module %> <%= section[0].section %> <%= section[0].year %> <%= section[0].semester %>">join</button></p>
                         </div>
                     <% } else { %>
                         <% section.forEach(s => { %>
@@ -52,7 +52,7 @@
                                 <h6> <%= s.year %> semester: <%= s.semester %></h6>
                                 <p>Section: <%= s.section %></p>
                                 <p>Group size: <%= s.studentNo %></p>
-                                <p><button type="submit" name="join" value="<%= s.module %> <%= s.section %> <%= s.year %> <%= s.semester %>">join group</button></p>
+                                <p style="padding-top: 5px"><button type="submit" name="join" value="<%= s.module %> <%= s.section %> <%= s.year %> <%= s.semester %>">join</button></p>
                             </div>
                         <% }); %>
                     <% } %>
