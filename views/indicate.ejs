@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<form action="/submit-modules" method="POST">
+
+    <div class="container text-center">
+        <h1 style="padding-top: 40px; padding-bottom: 40px">Indicate Your Modules</h1>
+
+        <label\for="year">year:</label>
+        <select id="year" name="year" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+            <option value="3">5</option>
+            <!-- Add more options for other semesters if needed -->
+        </select>
+        <label for="semester">semester:</label>
+        <select id="semester" name="semester" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!-- Add more options for other semesters if needed -->
+        </select>
+        <br>
+    
+        <label for="modules">Modules:</label> <br>
+        <input type="text" id="modules" name="modules[]" required>
+        <button type="button" onclick="addRow()">+</button>
+
+        <div id="extra-modules">
+            <!-- Additional rows for input will be added here -->
+        </div>
+        <br>
+                
+        <button type="submit">submit</button>    
+        </div>
+    </form>
+        
+    </div>
+</form>
+
+<script>
+    function addRow() {
+        var div = document.createElement("div");
+        div.innerHTML = '<input type="text" name="modules[]" required> <button type="button" onclick="deleteRow(this)">-</button>';
+        document.getElementById("extra-modules").appendChild(div);
+    }
+    
+    function deleteRow(button) {
+        button.parentNode.remove();
+    }
+</script>
+
+<%- include('partials/footer') %>
+

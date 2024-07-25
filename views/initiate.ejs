@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<form action="/start-group" method="POST">
+
+    <div class="container text-center">
+        <h1 style="padding-top: 40px; padding-bottom: 40px">start your own bidding group</h1>
+
+        <label for="semester">semester:</label>
+        <select id="semester" name="semester" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!-- Add more options for other semesters if needed -->
+        </select>
+        <br>
+    
+        <label for="modules">module code:</label> <br>
+        <input type="text" id="module" name="module" required> <br> <br>
+
+        <label for="section">section no.:</label> <br>
+        <input type="text" id="section" name="section" required>
+
+        <br><br>
+                
+        <button type="submit">submit</button>    
+        </div>
+    </form>
+        
+    </div>
+</form>
+
+<%- include('partials/footer') %>
+

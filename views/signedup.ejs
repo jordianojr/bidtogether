@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<style>
+        /* Add your custom CSS styles here */
+        .bulletin-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .bulletin-item {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .bulletin-item h3 {
+            margin-top: 0;
+        }
+        .bulletin-item p {
+            margin-bottom: 0;
+        }
+</style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 style="padding-top: 40px">sections you signed up for</h1>
+            <h6>displaying results for:</h6>
+            <div class="bulletin-board">
+                <!-- Add your bulletin items here -->
+                <% sections.forEach(section => { %>
+                    <% if (section.length === 0) { %>
+                    <% } else { %>
+                            <div class="bulletin-item">
+                                <h3><%= section.module_code %></h3>
+                                <h6> <%= section.current_year %> semester: <%= section.study_semester %></h6>
+                                <p>section: <%= section.section_code %></p>
+                            </div>
+                    <% } %>
+            <% }); %>            
+        </div>
+    </div>
+    
+<%- include('partials/footer') %>
+

@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+  <div class="container mt-5">
+    <h1>Please key in your information</h1>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- Makes POST request to /login route -->
+            <form action="/info" method="POST">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name">
+              </div>
+              <div class="form-group">
+                <label for="studyYear">Year of Study</label> <br>
+                <select name="studyYear">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="course">Phone Number</label>
+                <input type="text" class="form-control" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="course">Course</label> <br>
+                <select name="course">
+                    <option value="Law">Law</option>
+                    <option value="IS">IS</option>
+                    <option value="CS">CS</option>
+                    <option value="C&L">C&L</option>
+                    <option value="SWE">SWE</option>
+                    <option value="Business">Business</option>
+                    <option value="Accountancy">Accountancy</option>
+                    <option value="PLE">PLE</option>
+                    <option value="Econs">Econs</option>
+                    <option value="PPS">PPS</option>
+                    <option value="CIS">CIS</option>
+                </select> 
+                <br><br>
+              <button type="submit" class="btn btn-dark">Submit</button>
+              <input type="hidden" class="form-control" name="email" value="<%=user%>">
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>

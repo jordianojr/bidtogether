@@ -1,0 +1,67 @@
+<%- include('partials/header') %>
+
+<style>
+        /* Add your custom CSS styles here */
+        .bulletin-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .bulletin-item {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .bulletin-item h3 {
+            margin-top: 0;
+        }
+        .bulletin-item p {
+            margin-bottom: 0;
+        }
+</style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 style="padding-top: 40px">your modules for this semester</h1>
+        <form action="/join-group" method="POST">
+            <h6>displaying results for:</h6>
+            <% modules.forEach(module => { %>
+                <li><%= module.module_code %></li>
+            <% }); %>
+            <div class="bulletin-board">
+                <!-- Add your bulletin items here -->
+                <% sections.forEach(section => { %>
+                    <% if (section.length === 0) { %>
+                    <% } else if (section.length === 1) { %>
+                        <div class="bulletin-item">
+                            <h3><%= section[0].module %></h3>
+                            <h6> <%= section[0].year %> semester: <%= section[0].semester %></h6>
+                            <p>Section: <%= section[0].section %></p>
+                            <p>Group size: <%= section[0].studentNo %></p>
+                            <p><button type="submit" name="join" value="<%= section[0].module %> <%= section[0].section %> <%= section[0].year %> <%= section[0].semester %>">join group</button></p>
+                        </div>
+                    <% } else { %>
+                        <% section.forEach(s => { %>
+                            <div class="bulletin-item">
+                                <h3><%= s.module %></h3>
+                                <h6> <%= s.year %> semester: <%= s.semester %></h6>
+                                <p>Section: <%= s.section %></p>
+                                <p>Group size: <%= s.studentNo %></p>
+                                <p><button type="submit" name="join" value="<%= s.module %> <%= s.section %> <%= s.year %> <%= s.semester %>">join group</button></p>
+                            </div>
+                        <% }); %>
+                    <% } %>
+            <% }); %>            
+        </form>
+        </div>
+        <h6>can't find your match? <a href="/initiate">start your own group!</a></h6>
+    </div>
+
+    
+    
+<%- include('partials/footer') %>
+
