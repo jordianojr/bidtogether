@@ -8,7 +8,7 @@ body {
   }
   
   .jumbotron {
-    background-color: #007bff !important; /* Bootstrap primary color */
+    background-color: #60adff !important; /* Bootstrap primary color */
     color: #fff !important; /* White text color */
     text-align: center !important; /* Center align text */
     padding: 80px 20px !important; /* Adjust padding as needed */

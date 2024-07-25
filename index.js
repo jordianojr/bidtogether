@@ -57,12 +57,17 @@ app.get("/signed-up", async (req, res) => {
   try {
       const result = await db.query("SELECT current_year, study_semester, module_code, section_code FROM sections WHERE email = $1", [email]);
       if (result.rows.length === 0) {
-        return []; // Returning an empty array or null depending on your application's logic
+        // return []; // Returning an empty array or null depending on your application's logic
+        res.render("signedup.ejs", {
+          user: email,
+          sections: []
+        });
+      } else {
+        res.render("signedup.ejs", {
+          user: email,
+          sections: result.rows
+        });  
       }
-      res.render("signedup.ejs", {
-        user: email,
-        sections: result.rows
-      });
   } catch (err) {
     console.error('Error in /board route:', err);
     res.status(500).send('Internal Server Error');

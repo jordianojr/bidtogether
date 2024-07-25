@@ -25,21 +25,28 @@
 </style>
 </head>
 <body>
+    <%- include('partials/navbar') %>
     <div class="container text-center">
-        <h1 style="padding-top: 40px">sections you signed up for</h1>
-            <h6>displaying results for:</h6>
+        <h1 style="padding-top: 200px">sections you signed up for</h1>
             <div class="bulletin-board">
                 <!-- Add your bulletin items here -->
-                <% sections.forEach(section => { %>
-                    <% if (section.length === 0) { %>
-                    <% } else { %>
-                            <div class="bulletin-item">
-                                <h3><%= section.module_code %></h3>
-                                <h6> <%= section.current_year %> semester: <%= section.study_semester %></h6>
-                                <p>section: <%= section.section_code %></p>
-                            </div>
-                    <% } %>
-            <% }); %>            
+                <% if (sections.length === 0) { %>
+                    <div>
+                        <h6>you have not signed up for any sections</h6>
+                        <p><a href="/board">search for groups to bid with</a></p>    
+                    </div>
+                <% } else { %>
+                    <% sections.forEach(section => { %>
+                        <% if (section.length === 0) { %>
+                        <% } else { %>
+                                <div class="bulletin-item">
+                                    <h3><%= section.module_code %></h3>
+                                    <h6> <%= section.current_year %> semester: <%= section.study_semester %></h6>
+                                    <p>section: <%= section.section_code %></p>
+                                </div>
+                        <% } %>
+                    <% }); %>                
+                <% } %>
         </div>
     </div>
     
